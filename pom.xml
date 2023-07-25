@@ -31,7 +31,7 @@
     </snapshotRepository>
     
     <repository>
-        <id>releases</id>
+        <id>release</id>
         <name>libs-release-local</name>
         <url>http://3.94.198.21:8082/artifactory/libs-release-local/</url>
     </repository>	
