@@ -8,8 +8,7 @@ phases:
     commands:
       #- echo Code Scanning using SonarQube
       #- mvn verify sonar:sonar
-      - echo Connecting AWS CodeArtifact 
-      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain bcr --domain-owner 420815905200 --region us-east-1 --query authorizationToken --output text`
+      - echo Publish Artifact To JFROG  
   build:
     commands:
       - echo Build started on `date`
@@ -17,6 +16,7 @@ phases:
       - ls -lrta
       - ls -lrt $CODEBUILD_SRC_DIR/settings.xml
       - cp -pvr $CODEBUILD_SRC_DIR/settings.xml ~/.m2/settings.xml
+      - echo Publish Artifact To JFROG based on the User Input in POM.xml file 
       - mvn deploy
   post_build:
     commands:
