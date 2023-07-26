@@ -19,7 +19,7 @@ phases:
       #- cp -pvr $CODEBUILD_SRC_DIR/settings.xml ~/.m2/settings.xml
       #- echo Publish Artifact To JFROG based on the User Input in POM.xml file 
       - mvn install
-      - echo Deliver Artifact To Tomcat & Deploy
+      - echo "Deliver Artifact To Tomcat & Deploy"
       - sh 'curl -u admin:redhat@123 -T target/**.war "http://44.211.143.213:8080/manager/text/deploy?path=/b78am&update=true"'
   post_build:
     commands:
