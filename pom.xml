@@ -16,8 +16,8 @@
 
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.organization>kummari</sonar.organization>
-        <sonar.projectKey>kummari_b78am</sonar.projectKey>
-        <sonar.login>dcb673362e079a49ff0a4c9f655a569846da6fc9</sonar.login>
+        <sonar.projectKey>kummari_cloudbinary-b78am</sonar.projectKey>
+        <sonar.login>67dc4059a415933d6a9d3be2880a01d9a688d229</sonar.login>
         
     </properties>
 
@@ -27,13 +27,13 @@
     <snapshotRepository>
         <id>snapshots</id>
         <name>libs-snapshot-local</name>
-        <url>http://3.94.198.21:8082/artifactory/libs-snapshot-local/</url>
+        <url>http://3.91.220.174:8082/artifactory/libs-snapshot-local/</url>
     </snapshotRepository>
     
     <repository>
         <id>release</id>
         <name>libs-release-local</name>
-        <url>http://3.94.198.21:8082/artifactory/libs-release-local/</url>
+        <url>http://3.91.220.174:8082/artifactory/libs-release-local/</url>
     </repository>	
     
 </distributionManagement>
