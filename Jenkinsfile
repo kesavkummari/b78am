@@ -5,6 +5,11 @@ pipeline {
          jdk 'java'
     }
     stages {
+       stage('Stage-0 : Static Code Quality Using SonarQube') { 
+            steps {
+                sh 'mvn sonar:sonar' 
+            }
+        }
         stage('Stage-1 : Clean') { 
             steps {
                 sh 'mvn clean'
@@ -38,6 +43,21 @@ pipeline {
           stage('Stage-7 : Package') { 
             steps {
                 sh 'mvn package'
+            }
+        }
+        stage('Stage-8 : Push an Artifact to Artifactory Manager i.e. AWS CodeArtifact/S3/Nexus/Jfrog') { 
+            steps {
+                sh 'mvn deploy'
+            }
+        }
+        stage('Stage-9 : Deliver the Artifact to Tomcat cloudbinary-5.0.0.war file to Tomcat Server') { 
+            steps {
+                sh 'curl -u admin:redhat@123 -T target/**.war "http://54.160.172.218:8080/manager/text/deploy?path=/opswork&update=true"'
+            }
+        } 
+        stage('Stage-10 : SmokeTest') { 
+            steps {
+                sh 'curl --retry-delay 10 --retry 5 "http://54.160.172.218:8080/opswork"'
             }
         }
     }
