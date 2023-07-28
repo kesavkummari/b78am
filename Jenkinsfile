@@ -50,14 +50,14 @@ pipeline {
                 sh 'mvn deploy'
             }
         }
-        stage('Stage-9 : Deliver the Artifact to Tomcat cloudbinary-5.0.0.war file to Tomcat Server') { 
+        stage('Stage-9 : Deliver the Artifact to Tomcat cloudbinaryb78am-9.0.0.war file to Tomcat Server') { 
             steps {
-                sh 'curl -u admin:redhat@123 -T target/**.war "http://54.160.172.218:8080/manager/text/deploy?path=/opswork&update=true"'
+                sh 'curl -u admin:redhat@123 -T target/**.war "http://3.95.200.169:8080/manager/text/deploy?path=/opswork&update=true"'
             }
         } 
         stage('Stage-10 : SmokeTest') { 
             steps {
-                sh 'curl --retry-delay 10 --retry 5 "http://54.160.172.218:8080/opswork"'
+                sh 'curl --retry-delay 10 --retry 5 "http://3.95.200.169:8080/opswork"'
             }
         }
     }
